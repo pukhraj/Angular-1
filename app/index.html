@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>MEAN Stack Application</title>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.js" rel="stylesheet" />
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://rawgit.com/mishguruorg/angular-timezone-selector/master/dist/angular-timezone-selector.css">
+    <link href="app-content/css/app.css" rel="stylesheet" />
+    <link href="app-content/css/chatbox.css" rel="stylesheet" />
+    <link rel="stylesheet" href="app-content/css/normalize.css">
+    
+    
+    <link rel="stylesheet" type="text/css" href="https://rawgit.com/alexk111/ngImgCrop/master/compile/unminified/ng-img-crop.css">
+       
+
+</head>
+<body class="container">
+    <!-- header -->
+    <header>
+        <ul class="nav nav-tabs">
+            <li ng-class="{active: activeTab === 'home'}"><a ui-sref="home">Dashboard <i class="glyphicon glyphicon-dashboard"></i></a></li>
+            <li ng-class="{active: activeTab === 'account'}"><a ui-sref="account">Account <i class="glyphicon glyphicon-user"></i></a></li>
+            <li ng-class="{active: activeTab === 'singlechat'}"><a ui-sref="singlechat">Chat <i class="glyphicon glyphicon-comment"></i></a></li>
+            <ul class="nav nav-tabs pull-right">
+                <li><a href="/index">Back To Home <i class="glyphicon glyphicon-home"></i></a></li>
+                <li><a href="/logout" target="_self">Logout <i class="glyphicon glyphicon-off"></i></a></li>
+           </ul>
+        </ul>
+        <div class="flash-message" ng-if="flash">
+            <div class="{{'alert alert-' + flash.type}}" ng-bind="flash.message"></div>
+        </div>
+    </header>
+
+    <!-- main -->
+    <main ui-view></main>
+
+    <!-- footer -->
+    <footer></footer>
+
+    <!-- external scripts -->
+    <script src="app-content/js/jquery.min.js"></script>
+    <script src='app-content/js/jquery.nicescroll.js'></script>
+    <script src="app-content/js/angular.min.js"></script>
+    <script src="app-content/js/angular-ui-router.min.js"></script>
+
+    <script src="app-content/js/ui-bootstrap-tpls.min.js"></script>
+   
+    <script src="app-content/js/lodash.min.js"></script>
+    <script src="app-content/js/moment.min.js"></script>
+    <script src="app-content/js/moment-timezone-with-data.min.js"></script>
+    <script src="app-content/js/chosen.jquery.js"></script>
+    <script src="app-content/js/jstz.min.js"></script>
+    <script src="app-content/js/angular-timezone-selector.js"></script>
+  
+    
+    <!-- shim is needed to support non-HTML5 FormData browsers (IE8-9)-->
+    <script type="text/javascript" src="app-content/js/ng-file-upload-shim.js"></script>
+    <script type="text/javascript" src="app-content/js/ng-file-upload.js"></script>
+    <script type="text/javascript" src="app-content/js/ng-img-crop.js"></script>
+        
+
+    <!-- application scripts -->
+    <script src="app.js"></script>
+    <script src="app-content/js/index.js"></script>
+    <script src="app-services/user.service.js"></script>
+    <script src="app-services/flash.service.js"></script>
+    <script src="home/index.controller.js"></script>
+    <script src="account/index.controller.js"></script>
+    <script src="singlechat/index.controller.js"></script>
+</body>
+</html>

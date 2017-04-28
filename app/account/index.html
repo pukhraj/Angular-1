@@ -1,0 +1,111 @@
+<div class="ui">
+    <!--    <div class="rows">
+            <div class="col-lg-12">
+                <h1>My Account</h1>
+            </div>
+        </div>-->
+    <div class="rows">
+        <div class="col-lg-6">
+            <h1>My Account</h1>
+            <form method="post">
+                <div class="form-group">
+                    <label for="firstName">First name</label>
+                    <input type="text" id="firstName" class="form-control" ng-model="vm.user.firstName" required />
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last name</label>
+                    <input type="text" id="lastName" class="form-control" ng-model="vm.user.lastName" required />
+                </div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" class="form-control" ng-model="vm.user.username" required />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control" ng-model="vm.user.password" />
+                </div>
+                <div class="form-group">
+                    <label for="usertimezone">Time Zone</label>
+                    <timezone-selector
+                        ng-model="vm.user.usertimezone"
+                        display-utc="true"
+                        sort-by="offset"
+                        show-local="true"
+                        set-local="true"
+                        width="100%"
+                        class="form-control"
+                        >
+                    </timezone-selector>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" ng-click="vm.saveUser()">Save</button>
+                    <button class="btn btn-danger" ng-click="vm.deleteUser()">Delete</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-6">
+            <h1>&nbsp;</h1>
+            <form name="myForm">
+                <div class="form-group">
+                    <span id="fileselector">
+                        <label class="btn btn-default" for="upload-file-selector">
+                            <button ngf-select ng-model="picFile" accept="image/*" id="upload-file-selector" type="file"></button>
+                            <i class="fa_icon icon-upload-alt margin-correction"></i>upload file
+                        </label>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <div ngf-drop ng-model="picFile" ngf-pattern="image/*" class="cropArea">
+                        <img-crop image="picFile  | ngfDataUrl" result-image="croppedDataUrl" ng-init="croppedDataUrl = ''"></img-crop>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <img class="cropedimg" ng-src="{{croppedDataUrl}}" />
+                </div>
+                <div class="form-group">
+                    <button ng-disabled="((!croppedDataUrl) || (!picFile.name))" ng-click="upload(croppedDataUrl, picFile.name)" class="btn btn-primary">
+                        Upload
+                    </button> 
+
+                </div>
+                <div class="form-group">
+
+                    <div ng-show="progress">
+                        <div style="" class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="{{progress}}"aria-valuemin="0" 
+                                 aria-valuemax="100" ng-bind="progress + '%'" style="width:{{progress}}%;">
+                                <span class="sr-only">{{progress}}% Complete</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <span ng-show="result">Upload Successful</span>
+                    <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
+
+
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    .ui {
+        margin: 10px auto;
+        //width: 745px;
+        height: 555px;
+        background-color: #fff;
+        border-radius: 3px;
+        box-shadow: 0 0 25px #3a9fc4;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        /*    flex-direction: row;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;*/
+        overflow: hidden;
+    }
+</style>
