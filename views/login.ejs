@@ -1,0 +1,48 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+            <div class="section section-breadcrumbs">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<h1>Login</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+            
+
+            <!-- Our Clients -->
+            <div class="section">
+                <div class="container">
+
+                    
+
+                    <div class="clients-logo-wrapper  row">
+                        <div class="form-container" style="min-height: 400px;">
+                        <% if(locals.error) { %>
+                            <div class="alert alert-danger"><%= error %></div>
+                        <% } %>
+                        <% if(locals.success) { %>
+                            <div class="alert alert-success"><%= success %></div>
+                        <% } %>
+                        <form method="post">
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" name="username" id="username" value="<%= locals.username || '' %>" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" name="password" id="password" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Login</button>
+                                <a href="/register" class="btn btn-warning">Register</a>
+                                <a href="/" class="btn btn-danger">Cancel</a>
+                            </div>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Our Clients -->
+            <%- include('partials/footer') %>

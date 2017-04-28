@@ -1,0 +1,63 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+            <div class="section section-breadcrumbs">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						 <h1>Sign up</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+            
+
+            <!-- Our Clients -->
+            <div class="section">
+                <div class="container">
+
+                    
+
+                    <div class="clients-logo-wrapper  row">
+                        <div class="form-container" style="min-height: 400px;">
+                        <% if(locals.error) { %>
+                            <div class="alert alert-danger"><%= error %></div>
+                        <% } %>
+                        <% if(locals.success) { %>
+                            <div class="alert alert-success"><%= success %></div>
+                        <% } %>
+                        
+<!--                        <form method="post">-->
+                        <form method="post" data-toggle="validator" role="form">
+                            
+                            <div class="form-group">
+                                <label for="firstName" class="control-label">First name</label>
+                                <input name="firstName" type="text" class="form-control" id="firstName" placeholder="First name" required>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName" class="control-label">Last name</label>
+                                <input name="lastName" type="text" class="form-control" id="lastName" placeholder="Last name" required>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="username" class="control-label">Username</label>
+                                <input name="username" type="email" class="form-control" id="username" placeholder="username" required>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="control-label">Password</label>
+                                <input name="password" data-minlength="5" data-error="must enter minimum of 5 characters" type="password" class="form-control" id="password" placeholder="password" required>
+                                <div class="help-block with-errors">Minimum of 5 characters</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Register</button>
+                                <a href="/login" class="btn btn-info">Login</a>
+                                <a href="/" class="btn btn-danger">Cancel</a>
+                            </div>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Our Clients --><%- include('partials/footer') %>
